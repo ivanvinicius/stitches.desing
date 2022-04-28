@@ -1,3 +1,11 @@
+import { Flex } from '../styles/pages/Home'
+
 export default function Home() {
-  return <h1>Hello Experts Club</h1>
+  return (
+    <Flex css={{ gap: `$16`, padding: `$16` }}>
+      <button type="button">Experts Club</button>
+
+      <button type="button">Experts Club</button>
+    </Flex>
+  )
 }

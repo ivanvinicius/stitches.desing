@@ -8,7 +8,9 @@
   "extends": [
     "plugin:react/recommended",
     "standard",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "next", 
+    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,7 +25,9 @@
     "@typescript-eslint",
     "react-hooks",
     "prettier",
-    "eslint-plugin-import-helpers"
+    "eslint-plugin-import-helpers",
+    "import", 
+    "jsx-a11y"
   ],
   "rules": {
     "camelcase": "off",
@@ -50,6 +54,47 @@
           ["sibling", "index"]
         ]
       }
+    ],
+
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
     ] 
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)",
+      "extends": [
+        "plugin:@typescript-eslint/recommended", 
+        "prettier"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "rules": {
+        "@typescript-eslint/quotes": [
+          2,
+          "backtick",
+          {
+            "avoidEscape": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "."
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
   }
 }

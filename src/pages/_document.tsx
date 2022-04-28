@@ -1,6 +1,8 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
-export default class CustomDocument extends Document {
+import { getCssText } from '../styles'
+
+export default class MyDocument extends NextDocument {
   render() {
     return (
       <Html lang="pt-br">
@@ -12,6 +14,11 @@ export default class CustomDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
             rel="stylesheet"
+          />
+
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
         </Head>
         <body>
